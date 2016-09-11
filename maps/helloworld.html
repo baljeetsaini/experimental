@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <label for="latitude">Latitude</label>
+    <input type="text" id="latitude">
+    <label for="longitude">Longitude</label>
+    <input type="text" id="longitude"/>
+    <input type="button" onclick="showMap()">
+    
+    <div id="map"/>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAk_oh0Nn5JUCfPLccsgA5768VwzTPqClo&callback=initMap" async defer></script>
+    
+    <script>
+      function showMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: document.getElementById('latitude').value, lng: document.getElementById('longitude').value},
+          zoom: 8
+        });
+      }
+    </script>
+  </body>
+</html>
