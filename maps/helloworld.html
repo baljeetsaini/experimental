@@ -21,16 +21,23 @@
     <input type="text" id="latitude">
     <label for="longitude">Longitude</label>
     <input type="text" id="longitude"/>
-    <input type="button" onclick="showMap()">
+    <input type="button" onclick="showMap()" value="Show Map">
     
     <div id="map"/>
     
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAk_oh0Nn5JUCfPLccsgA5768VwzTPqClo&callback=initMap" async defer></script>
     
     <script>
+    	function initMap() {
+    		alert("map api ready");	
+    	}
+    
       function showMap() {
+      	  var latitude = document.getElementById('latitude').value * 1;
+      	  var longitude = document.getElementById('longitude').value * 1;
+      	  alert("showing map "+latitude+" "+longitude);
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: document.getElementById('latitude').value, lng: document.getElementById('longitude').value},
+          center: {"lat": latitude, "lng": longitude},
           zoom: 8
         });
       }
